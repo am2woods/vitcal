@@ -1,10 +1,21 @@
 <?php
 
-$name = $_GET['name'];
+if(isset($_GET['name'])) {
+	require '../db/vitamins.php';
 
-$data = [
-  'VITAMIN B6' => 'B6 is good for you',
-    'VITAMIN A' => 'A is better',
-];
+	$name =  ($_GET['name']);
 
-echo $data[$name];
+	$data = mysql_query("
+			SELECT 'v'.'name', 'f'.'name', 'p'.'grams', 
+					'p'.'percentage', 'i'.'path'
+			FROM 'vitamins' 'v' JOIN 'percentage' 'p' ON 'v'.'id' = 'p'.'vitamin_id'
+								JOIN 'food' 'f' ON 'f'.'id' = 'p'.'food_id'
+								JOIN 'images' 'i' ON 'i'.'id' = 'f'.'image_id'
+			WHERE 'v'.'name' = '". $name ."'
+
+		");
+}
+
+echo $data['
+
+']

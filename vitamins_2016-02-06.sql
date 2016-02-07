@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 4096
+# Version 4500
 #
 # http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
+# https://github.com/sequelpro/sequelpro
 #
-# Host: localhost (MySQL 5.5.29)
+# Host: 127.0.0.1 (MySQL 5.5.42)
 # Database: vitamins
-# Generation Time: 2015-06-14 20:37:55 +0000
+# Generation Time: 2016-02-07 01:46:15 +0000
 # ************************************************************
 
 
@@ -67,7 +67,8 @@ VALUES
 	(27,'lettuce','vegetables',NULL),
 	(28,'baby carrots','vegetables',NULL),
 	(29,'basil','vegetables',NULL),
-	(30,'sweet potato','vegetable',NULL);
+	(30,'sweet potato','vegetables',NULL),
+	(31,'grapes','fruit',NULL);
 
 /*!40000 ALTER TABLE `foods` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -84,6 +85,15 @@ CREATE TABLE `images` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+
+INSERT INTO `images` (`id`, `path`)
+VALUES
+	(1,NULL);
+
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table percentage
@@ -105,14 +115,67 @@ LOCK TABLES `percentage` WRITE;
 
 INSERT INTO `percentage` (`id`, `food_id`, `vitamin_id`, `grams`, `percentage`)
 VALUES
-	(1,8,8,128,0),
-	(2,19,8,123,0),
-	(3,19,1,123,0),
-	(4,1,9,246,0),
+	(1,8,8,128,14),
+	(2,19,8,123,10),
+	(3,19,1,123,14),
+	(4,1,9,246,25),
 	(5,17,10,143,2),
-	(6,2,9,132,0),
-	(7,3,9,132,0),
-	(8,18,10,144,1);
+	(6,2,9,132,4),
+	(7,3,9,132,15),
+	(8,18,10,144,1),
+	(9,4,9,28,7),
+	(10,4,12,28,4),
+	(11,4,14,28,22),
+	(12,4,14,28,11),
+	(13,1,12,246,35),
+	(14,2,12,132,95),
+	(15,3,12,132,104),
+	(16,11,1,180,8),
+	(17,11,8,180,145),
+	(18,11,12,180,7),
+	(19,11,13,180,1),
+	(20,12,8,84,74),
+	(21,13,8,55,209),
+	(22,14,8,152,149),
+	(23,15,8,118,17),
+	(24,16,8,68,11),
+	(25,17,10,143,187),
+	(26,17,12,143,38),
+	(27,17,13,143,30),
+	(28,6,10,177,13),
+	(29,6,8,177,273),
+	(30,6,12,177,6),
+	(31,6,13,177,3),
+	(32,10,10,165,9),
+	(33,18,10,144,61),
+	(34,18,12,144,13),
+	(35,18,13,144,37),
+	(36,25,11,10,205),
+	(37,25,1,10,17),
+	(38,25,8,10,22),
+	(39,25,13,10,3),
+	(40,20,11,30,181),
+	(41,29,11,5,27),
+	(42,29,1,5,6),
+	(43,26,11,67,684),
+	(44,26,1,67,206),
+	(45,26,8,67,134),
+	(46,26,13,67,6),
+	(47,26,12,67,9),
+	(48,27,11,5,10),
+	(49,27,1,5,7),
+	(50,7,11,144,36),
+	(51,7,1,144,6),
+	(52,7,8,144,50),
+	(53,7,13,144,5),
+	(54,8,11,165,13),
+	(55,8,1,165,11),
+	(56,8,8,165,26),
+	(57,31,11,92,17),
+	(58,31,8,92,6),
+	(59,16,11,68,16),
+	(60,16,8,68,11),
+	(61,NULL,NULL,NULL,0);
 
 /*!40000 ALTER TABLE `percentage` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -145,7 +208,11 @@ VALUES
 	(8,'Vitamin C',NULL),
 	(9,'Vitamin D',NULL),
 	(10,'Vitamin E',NULL),
-	(11,'Vitamin K',NULL);
+	(11,'Vitamin K',NULL),
+	(12,'Calcium',NULL),
+	(13,'Iron',NULL),
+	(14,'Selanium',NULL),
+	(15,'Phosphorus',NULL);
 
 /*!40000 ALTER TABLE `vitamins` ENABLE KEYS */;
 UNLOCK TABLES;
